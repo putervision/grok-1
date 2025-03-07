@@ -1,0 +1,266 @@
+Scanning /home/beast/Documents/GitHub/grok-1 for space-proofing issues...
+- Ignore patterns: node_modules,__pycache__,.git
+- Create check sums: false
+Check sum file found: /home/beast/Documents/GitHub/grok-1/checksums.sha256.txt
+Loaded 11 checksums into memory.
+
+Analyzing /home/beast/Documents/GitHub/grok-1/checkpoint.py (python)...
+Issues in /home/beast/Documents/GitHub/grok-1/checkpoint.py (22):
+┌─────────┬──────┬──────────┬─────────────────────────┬───────────────────────────────────────────────────────────┐
+│ (index) │ line │ severity │ issue                   │ data                                                      │
+├─────────┼──────┼──────────┼─────────────────────────┼───────────────────────────────────────────────────────────┤
+│ 0       │ 86   │ 3        │ 'dynamic_memory'        │ 'list('                                                   │
+│ 1       │ 201  │ 3        │ 'dynamic_memory'        │ 'set('                                                    │
+│ 2       │ 202  │ 3        │ 'dynamic_memory'        │ 'set('                                                    │
+│ 3       │ 47   │ 2        │ 'complex_flow'          │ 'return'                                                  │
+│ 4       │ 74   │ 2        │ 'complex_flow'          │ 'return pickle.load(f)'                                   │
+│ 5       │ 107  │ 2        │ 'complex_flow'          │ 'return [f.result() for f in fs]'                         │
+│ 6       │ 119  │ 2        │ 'complex_flow'          │ 'return "/".join(pieces)'                                 │
+│ 7       │ 131  │ 2        │ 'complex_flow'          │ 'return None'                                             │
+│ 8       │ 139  │ 2        │ 'complex_flow'          │ 'break'                                                   │
+│ 9       │ 141  │ 2        │ 'complex_flow'          │ 'return load_path_str'                                    │
+│ 10      │ 177  │ 2        │ 'complex_flow'          │ 'return jax.tree_util.tree_unflatten(structure_init, rep' │
+│ 11      │ 221  │ 2        │ 'complex_flow'          │ 'return state'                                            │
+│ 12      │ 112  │ 5        │ 'unbounded_loops'       │ 'for elem in path:'                                       │
+│ 13      │ 129  │ 5        │ 'unbounded_loops'       │ 'for search_pattern in load_exclude_rules:'               │
+│ 14      │ 195  │ 5        │ 'unbounded_loops'       │ 'for elem in ckpt_shapes_with_path]'                      │
+│ 15      │ 51   │ 2        │ 'try_catch'             │ 'try:'                                                    │
+│ 16      │ 63   │ 2        │ 'try_catch'             │ 'try:'                                                    │
+│ 17      │ 113  │ 2        │ 'nested_conditionals'   │ 'if isinstance(elem, jax.tree_util.DictKey):'             │
+│ 18      │ 130  │ 2        │ 'nested_conditionals'   │ 'if re.search(search_pattern, init_path_str):'            │
+│ 19      │ 164  │ 2        │ 'nested_conditionals'   │ 'if load_path_str in load_map:'                           │
+│ 20      │ 214  │ 2        │ 'nested_conditionals'   │ 'if x is None else x,'                                    │
+│ 21      │ 106  │ 2        │ 'unchecked_func_return' │ "Unchecked function return - 'wait(fs)'"                  │
+└─────────┴──────┴──────────┴─────────────────────────┴───────────────────────────────────────────────────────────┘
+
+Analyzing /home/beast/Documents/GitHub/grok-1/model.py (python)...
+Issues in /home/beast/Documents/GitHub/grok-1/model.py (155):
+┌─────────┬──────┬──────────┬───────────────────────┬───────────────────────────────────────────────────────────┐
+│ (index) │ line │ severity │ issue                 │ data                                                      │
+├─────────┼──────┼──────────┼───────────────────────┼───────────────────────────────────────────────────────────┤
+│ 0       │ 209  │ 4        │ 'recursion'           │ 'def __init__('                                           │
+│ 1       │ 273  │ 4        │ 'recursion'           │ 'def __init__('                                           │
+│ 2       │ 526  │ 4        │ 'recursion'           │ 'def __init__('                                           │
+│ 3       │ 572  │ 4        │ 'recursion'           │ 'def mul(w, s):'                                          │
+│ 4       │ 589  │ 4        │ 'recursion'           │ 'def __init__('                                           │
+│ 5       │ 644  │ 4        │ 'recursion'           │ 'def __init__('                                           │
+│ 6       │ 695  │ 4        │ 'recursion'           │ 'def __init__('                                           │
+│ 7       │ 823  │ 4        │ 'recursion'           │ 'def update_into_shmap(mems, starts, updates):'           │
+│ 8       │ 1113 │ 4        │ 'recursion'           │ 'def __init__('                                           │
+│ 9       │ 1193 │ 4        │ 'recursion'           │ 'def partition_rules(self):'                              │
+│ 10      │ 1281 │ 4        │ 'recursion'           │ 'def init_memory(self, batch_size: int, seq_len: int, dt' │
+│ 11      │ 44   │ 2        │ 'complex_flow'        │ 'return self.weight.shape'                                │
+│ 12      │ 67   │ 2        │ 'complex_flow'        │ 'return True'                                             │
+│ 13      │ 68   │ 2        │ 'complex_flow'        │ 'return False'                                            │
+│ 14      │ 73   │ 2        │ 'complex_flow'        │ 'return x'                                                │
+│ 15      │ 75   │ 2        │ 'complex_flow'        │ 'return pjit_sharding_constraint(x, constraint)'          │
+│ 16      │ 80   │ 2        │ 'complex_flow'        │ 'return x.astype(jnp.bfloat16)'                           │
+│ 17      │ 82   │ 2        │ 'complex_flow'        │ 'return x'                                                │
+│ 18      │ 89   │ 2        │ 'complex_flow'        │ 'return _ffn_size'                                        │
+│ 19      │ 105  │ 2        │ 'complex_flow'        │ 'return replacement'                                      │
+│ 20      │ 107  │ 2        │ 'complex_flow'        │ 'return None'                                             │
+│ 21      │ 109  │ 2        │ 'complex_flow'        │ 'return _apply_rules'                                     │
+│ 22      │ 193  │ 2        │ 'complex_flow'        │ 'return ['                                                │
+│ 23      │ 228  │ 2        │ 'complex_flow'        │ 'return self._compute_routing_prob(inputs, padding_mask,' │
+│ 24      │ 248  │ 2        │ 'complex_flow'        │ 'return routing_probs, routing_logits, 0'                 │
+│ 25      │ 269  │ 2        │ 'complex_flow'        │ 'return out'                                              │
+│ 26      │ 337  │ 2        │ 'complex_flow'        │ 'return output'                                           │
+│ 27      │ 357  │ 2        │ 'complex_flow'        │ 'return jax.lax.psum(output, axis_name="model")'          │
+│ 28      │ 396  │ 2        │ 'complex_flow'        │ 'return inputs'                                           │
+│ 29      │ 397  │ 2        │ 'complex_flow'        │ 'return out'                                              │
+│ 30      │ 400  │ 2        │ 'complex_flow'        │ 'return self._inference_call(inputs)'                     │
+│ 31      │ 452  │ 2        │ 'complex_flow'        │ 'return TRANSFORMER_PARTITION_RULES'                      │
+│ 32      │ 460  │ 2        │ 'complex_flow'        │ 'return Transformer('                                     │
+│ 33      │ 477  │ 2        │ 'complex_flow'        │ 'return Memory('                                          │
+│ 34      │ 496  │ 2        │ 'complex_flow'        │ 'return ln(x)'                                            │
+│ 35      │ 515  │ 2        │ 'complex_flow'        │ 'return dtype'                                            │
+│ 36      │ 522  │ 2        │ 'complex_flow'        │ 'return mask.astype(dtype)'                               │
+│ 37      │ 573  │ 2        │ 'complex_flow'        │ 'return w.astype(s.dtype) * s'                            │
+│ 38      │ 584  │ 2        │ 'complex_flow'        │ 'return out'                                              │
+│ 39      │ 624  │ 2        │ 'complex_flow'        │ 'return outputs.astype(fprop_dtype)'                      │
+│ 40      │ 632  │ 2        │ 'complex_flow'        │ 'return jnp.concatenate((-x2, x1), axis=-1)'              │
+│ 41      │ 691  │ 2        │ 'complex_flow'        │ 'return x'                                                │
+│ 42      │ 807  │ 2        │ 'complex_flow'        │ 'return jax.lax.dynamic_update_slice_in_dim(mem, update,' │
+│ 43      │ 824  │ 2        │ 'complex_flow'        │ 'return update_into(mems, starts, updates)'               │
+│ 44      │ 891  │ 2        │ 'complex_flow'        │ 'return MHAOutput(final_projection(attn), new_memory)'    │
+│ 45      │ 911  │ 2        │ 'complex_flow'        │ 'return y.reshape((*leading_dims, num_heads, head_size))' │
+│ 46      │ 940  │ 2        │ 'complex_flow'        │ 'return MultiHeadAttention('                              │
+│ 47      │ 960  │ 2        │ 'complex_flow'        │ 'return attn_output._replace(embeddings=h_attn)'          │
+│ 48      │ 1007 │ 2        │ 'complex_flow'        │ 'return h_dense'                                          │
+│ 49      │ 1040 │ 2        │ 'complex_flow'        │ 'return hk_rms_norm(x)'                                   │
+│ 50      │ 1072 │ 2        │ 'complex_flow'        │ 'return h'                                                │
+│ 51      │ 1099 │ 2        │ 'complex_flow'        │ 'return DecoderOutput('                                   │
+│ 52      │ 1137 │ 2        │ 'complex_flow'        │ 'return embed_mat'                                        │
+│ 53      │ 1143 │ 2        │ 'complex_flow'        │ 'return jnp.dot(inputs, self.embeddings.T.astype(inputs.' │
+│ 54      │ 1177 │ 2        │ 'complex_flow'        │ 'return self'                                             │
+│ 55      │ 1186 │ 2        │ 'complex_flow'        │ 'return LanguageModel('                                   │
+│ 56      │ 1194 │ 2        │ 'complex_flow'        │ 'return LM_PARTITION_RULES + self.model.partition_rules(' │
+│ 57      │ 1198 │ 2        │ 'complex_flow'        │ 'return hk_rms_norm(x)'                                   │
+│ 58      │ 1258 │ 2        │ 'complex_flow'        │ 'return last_hid'                                         │
+│ 59      │ 1276 │ 2        │ 'complex_flow'        │ 'return LanguageModelOutput('                             │
+│ 60      │ 1282 │ 2        │ 'complex_flow'        │ 'return self.model.init_memory(batch_size=batch_size, se' │
+│ 61      │ 1288 │ 2        │ 'complex_flow'        │ 'return model_output.logits, model_output.model_state'    │
+│ 62      │ 1314 │ 2        │ 'complex_flow'        │ 'return Memory('                                          │
+│ 63      │ 1357 │ 2        │ 'complex_flow'        │ 'return DecoderLayer('                                    │
+│ 64      │ 1395 │ 2        │ 'complex_flow'        │ 'return TransformerOutput('                               │
+│ 65      │ 64   │ 5        │ 'unbounded_loops'     │ 'for i in range(len(ks) - len(qs) + 1):'                  │
+│ 66      │ 96   │ 5        │ 'unbounded_loops'     │ 'for i in path if isinstance(i, jax.tree_util.DictKey)]'  │
+│ 67      │ 199  │ 5        │ 'unbounded_loops'     │ 'for _ in range(num_layers)'                              │
+│ 68      │ 1380 │ 5        │ 'unbounded_loops'     │ 'for i in range(self.num_layers):'                        │
+│ 69      │ 96   │ 2        │ 'nested_conditionals' │ 'if isinstance(i, jax.tree_util.DictKey)]'                │
+│ 70      │ 258  │ 2        │ 'nested_conditionals' │ 'if not x.shape:'                                         │
+│ 71      │ 446  │ 2        │ 'nested_conditionals' │ 'if isinstance(self.data_axis, list):'                    │
+│ 72      │ 551  │ 2        │ 'nested_conditionals' │ 'if not inputs.shape:'                                    │
+│ 73      │ 603  │ 2        │ 'nested_conditionals' │ 'if self.create_scale:'                                   │
+│ 74      │ 670  │ 2        │ 'nested_conditionals' │ 'if jnp.shape(offset) == ():'                             │
+│ 75      │ 734  │ 2        │ 'nested_conditionals' │ 'if kv_memory is not None:'                               │
+│ 76      │ 802  │ 2        │ 'nested_conditionals' │ 'if kv_memory else 0))'                                   │
+│ 77      │ 869  │ 2        │ 'nested_conditionals' │ 'if mask is not None:'                                    │
+│ 78      │ 226  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 79      │ 228  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 80      │ 233  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 81      │ 238  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 82      │ 238  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 83      │ 241  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 84      │ 261  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 85      │ 261  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 86      │ 263  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 87      │ 294  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 88      │ 296  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 89      │ 299  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 90      │ 299  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 91      │ 299  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 92      │ 299  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 93      │ 310  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 94      │ 316  │ 4        │ 'unsafe_input'        │ 'input '                                                  │
+│ 95      │ 332  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 96      │ 335  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 97      │ 352  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 98      │ 355  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 99      │ 385  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 100     │ 386  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 101     │ 396  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 102     │ 399  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 103     │ 400  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 104     │ 507  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 105     │ 512  │ 4        │ 'unsafe_input'        │ 'input '                                                  │
+│ 106     │ 513  │ 4        │ 'unsafe_input'        │ 'input '                                                  │
+│ 107     │ 546  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 108     │ 548  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 109     │ 550  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 110     │ 551  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 111     │ 554  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 112     │ 554  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 113     │ 554  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 114     │ 558  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 115     │ 562  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 116     │ 563  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 117     │ 563  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 118     │ 576  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 119     │ 600  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 120     │ 601  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 121     │ 602  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 122     │ 612  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 123     │ 615  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 124     │ 615  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 125     │ 617  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 126     │ 618  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 127     │ 620  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 128     │ 636  │ 4        │ 'unsafe_input'        │ 'input '                                                  │
+│ 129     │ 929  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 130     │ 933  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 131     │ 935  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 132     │ 936  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 133     │ 937  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 134     │ 957  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 135     │ 975  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 136     │ 977  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 137     │ 987  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 138     │ 997  │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 139     │ 1032 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 140     │ 1037 │ 4        │ 'unsafe_input'        │ 'input '                                                  │
+│ 141     │ 1046 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 142     │ 1141 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 143     │ 1143 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 144     │ 1143 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 145     │ 1225 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 146     │ 1227 │ 4        │ 'unsafe_input'        │ 'input '                                                  │
+│ 147     │ 1233 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 148     │ 1234 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 149     │ 1235 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 150     │ 1237 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 151     │ 1240 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 152     │ 1241 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 153     │ 1256 │ 4        │ 'unsafe_input'        │ 'input'                                                   │
+│ 154     │ 1332 │ 4        │ 'unsafe_input'        │ 'input '                                                  │
+└─────────┴──────┴──────────┴───────────────────────┴───────────────────────────────────────────────────────────┘
+
+Analyzing /home/beast/Documents/GitHub/grok-1/run.py (python)...
+Issues in /home/beast/Documents/GitHub/grok-1/run.py (2):
+┌─────────┬──────┬──────────┬─────────────────────────┬────────────────────────────────────────┐
+│ (index) │ line │ severity │ issue                   │ data                                   │
+├─────────┼──────┼──────────┼─────────────────────────┼────────────────────────────────────────┤
+│ 0       │ 59   │ 5        │ 'exposed_secrets'       │ 'tokenizer_path="./tokenizer.model"'   │
+│ 1       │ 72   │ 2        │ 'unchecked_func_return' │ "Unchecked function return - 'main()'" │
+└─────────┴──────┴──────────┴─────────────────────────┴────────────────────────────────────────┘
+
+Analyzing /home/beast/Documents/GitHub/grok-1/runners.py (python)...
+Issues in /home/beast/Documents/GitHub/grok-1/runners.py (38):
+┌─────────┬──────┬──────────┬─────────────────────────┬───────────────────────────────────────────────────────────┐
+│ (index) │ line │ severity │ issue                   │ data                                                      │
+├─────────┼──────┼──────────┼─────────────────────────┼───────────────────────────────────────────────────────────┤
+│ 0       │ 159  │ 4        │ 'recursion'             │ 'def initialize('                                         │
+│ 1       │ 275  │ 4        │ 'recursion'             │ 'def initialize(self):'                                   │
+│ 2       │ 278  │ 3        │ 'dynamic_memory'        │ 'dict('                                                   │
+│ 3       │ 501  │ 3        │ 'dynamic_memory'        │ 'list('                                                   │
+│ 4       │ 572  │ 3        │ 'dynamic_memory'        │ 'set('                                                    │
+│ 5       │ 73   │ 2        │ 'complex_flow'          │ 'return jax.tree_map(lambda m, u: jax.lax.dynamic_update' │
+│ 6       │ 81   │ 2        │ 'complex_flow'          │ 'return np.pad(x, [0, size - x.shape[0]], mode="constant' │
+│ 7       │ 97   │ 2        │ 'complex_flow'          │ 'return logits'                                           │
+│ 8       │ 128  │ 2        │ 'complex_flow'          │ 'return SampleOutput('                                    │
+│ 9       │ 153  │ 2        │ 'complex_flow'          │ 'return out, None'                                        │
+│ 10      │ 157  │ 2        │ 'complex_flow'          │ 'return forward'                                          │
+│ 11      │ 197  │ 2        │ 'complex_flow'          │ 'return TrainingState(params=params)'                     │
+│ 12      │ 210  │ 2        │ 'complex_flow'          │ 'return sharding'                                         │
+│ 13      │ 249  │ 2        │ 'complex_flow'          │ 'return state'                                            │
+│ 14      │ 273  │ 2        │ 'complex_flow'          │ 'return self.pad_sizes[min(i, len(self.pad_sizes) - 1)]'  │
+│ 15      │ 300  │ 2        │ 'complex_flow'          │ 'return jnp.pad(x, [(0, 0), (0, pad_width), (0, 0), (0, ' │
+│ 16      │ 302  │ 2        │ 'complex_flow'          │ 'return x'                                                │
+│ 17      │ 306  │ 2        │ 'complex_flow'          │ 'return runner.model.make(mesh=runner.mesh)'              │
+│ 18      │ 322  │ 2        │ 'complex_flow'          │ 'return lm()(tokens, memory, length=length)'              │
+│ 19      │ 328  │ 2        │ 'complex_flow'          │ 'return rngs, sample_result, lm_outputs.model_state'      │
+│ 20      │ 331  │ 2        │ 'complex_flow'          │ 'return lm().init_memory(batch_size, sequence_len)'       │
+│ 21      │ 393  │ 2        │ 'complex_flow'          │ 'return rngs, last_output, memory, settings'              │
+│ 22      │ 477  │ 2        │ 'complex_flow'          │ 'break'                                                   │
+│ 23      │ 562  │ 2        │ 'complex_flow'          │ 'continue'                                                │
+│ 24      │ 593  │ 2        │ 'complex_flow'          │ 'return jax.sharding.Mesh(device_mesh, ("data", "model")' │
+│ 25      │ 605  │ 2        │ 'complex_flow'          │ 'return server.send(inp)'                                 │
+│ 26      │ 317  │ 5        │ 'unbounded_loops'       │ 'for l in memory.layers:'                                 │
+│ 27      │ 475  │ 5        │ 'unbounded_loops'       │ 'for size in self.pad_sizes:'                             │
+│ 28      │ 510  │ 5        │ 'unbounded_loops'       │ 'while True:'                                             │
+│ 29      │ 511  │ 5        │ 'unbounded_loops'       │ 'while free_slots:'                                       │
+│ 30      │ 556  │ 5        │ 'unbounded_loops'       │ 'for i in range(batch_size):'                             │
+│ 31      │ 170  │ 3        │ 'global_vars'           │ 'global batch'                                            │
+│ 32      │ 173  │ 3        │ 'global_vars'           │ 'global batch'                                            │
+│ 33      │ 78   │ 2        │ 'nested_conditionals'   │ 'if x.shape[0] > size:'                                   │
+│ 34      │ 557  │ 2        │ 'nested_conditionals'   │ 'if requests[i] is not None:'                             │
+│ 35      │ 196  │ 4        │ 'unsafe_input'          │ 'input'                                                   │
+│ 36      │ 279  │ 4        │ 'unsafe_input'          │ 'input'                                                   │
+│ 37      │ 597  │ 2        │ 'unchecked_func_return' │ "Unchecked function return - 'next(server)'"              │
+└─────────┴──────┴──────────┴─────────────────────────┴───────────────────────────────────────────────────────────┘
+┌───────────────────────┬──────────┬───────┬────────────────────────────────────────────────────────────────┐
+│ (index)               │ severity │ total │ info                                                           │
+├───────────────────────┼──────────┼───────┼────────────────────────────────────────────────────────────────┤
+│ dynamic_memory        │ 3        │ 6     │ 'https://github.com/putervision/spc#dynamic-memory'            │
+│ complex_flow          │ 2        │ 84    │ 'https://github.com/putervision/spc#complex-flow'              │
+│ unbounded_loops       │ 5        │ 12    │ 'https://github.com/putervision/spc#unbounded-loops'           │
+│ try_catch             │ 2        │ 2     │ 'https://github.com/putervision/spc#try-catch'                 │
+│ nested_conditionals   │ 2        │ 15    │ 'https://github.com/putervision/spc#nested-conditionals'       │
+│ unchecked_func_return │ 2        │ 3     │ 'https://github.com/putervision/spc#unchecked-function-return' │
+│ recursion             │ 4        │ 13    │ 'https://github.com/putervision/spc#recursion'                 │
+│ unsafe_input          │ 4        │ 79    │ 'https://github.com/putervision/spc#unsafe-input'              │
+│ exposed_secrets       │ 5        │ 1     │ 'https://github.com/putervision/spc#exposed-secrets'           │
+│ global_vars           │ 3        │ 2     │ 'https://github.com/putervision/spc#global-vars'               │
+└───────────────────────┴──────────┴───────┴────────────────────────────────────────────────────────────────┘
+Scanning complete in 0.037 seconds
+Total severity: 665 - Total issues: 217 - Risk Level: 3.06 / 5.00
